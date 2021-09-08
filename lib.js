@@ -12,8 +12,22 @@ async function initBlog(){
     const postData = await fetch('https://jsonplaceholder.typicode.com/posts');
     blog.posts = await postData.json();
     blog.posts.splice(25,75);
+    blog.totalePage = Math.ceil(blog.posts.length / blog.itemsPerPage);
     //console.log(blog.posts);
+    initIndicatoriPaginazione();
     showPost();
+}
+
+
+function initIndicatoriPaginazione() {
+    for (let i = 0; i < blog.totalePage; i++) {
+        let classi = "position";
+        i === 0 ? classi += ' active' : '';
+        let pagination = document.createElement('span');
+        pagination.setAttribute('class', classi);
+        blog.pagePositionWrapper.appendChild(pagination);
+        
+    }
 }
 
 function showPost() {

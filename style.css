@@ -60,7 +60,7 @@ div#page-position-w span.position{
     border-radius: 2px;
 }
 
-div#page-position-w span.position {
+div#page-position-w span.position.active {
     opacity: 1;
     color: #fff;
 }
